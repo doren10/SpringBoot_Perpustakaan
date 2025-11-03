@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar & Tambah Buku</title>
+    <!-- Link Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Link ke CSS -->
+    <link rel="stylesheet" href="/css/daftar_tambah_buku.css">
+    <!-- <link rel="stylesheet" href="css/user.css"> -->
+    <link rel="stylesheet" href="/css/daftar_buku.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h1 class="sidebar-title">
+                <i class="fas fa-user-shield icon"></i> Administrator
+            </h1>
+            <p class="sidebar-description">Dashboard untuk mengelola perpustakaan</p>
+            <ul class="sidebar-menu">
+                <li><a href="/dashboardadmin"><i class="fas fa-tachometer-alt icon"></i> Dashboard</a></li>
+                <li><a href="/peminjamanadmin"><i class="fas fa-exchange-alt icon"></i> Peminjaman & Pengembalian</a></li>
+                <li><a href="/daftar_tambah_buku" class="active"><i class="fas fa-book icon"></i> Daftar & Tambah
+                        Buku</a></li>
+                <li><a href="/daftar_peminjam"><i class="fas fa-list icon"></i> Riwayat Peminjaman & Pengembalian</a></li>
+                <!-- <li><a href="/pengembalian"><i class="fas fa-undo-alt icon"></i> Daftar Pengembalian</a></li> -->
+                <!-- <li><a href="/workshop"><i class="fas fa-chalkboard-teacher icon"></i> Workshop</a></li> -->
+                <li><a href="/pengguna"><i class="fas fa-users icon"></i> Pengguna</a></li>
+                <li><a href="/logout"><i class="fas fa-sign-out-alt icon"></i> Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content">
+            <!-- Search Bar -->
+            <!-- <div class="search-bar">
+                <input type="text" placeholder="Cari buku..." class="search-input">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div> -->
+
+            <!-- Add Book Button -->
+            <!-- <div class="add-book">
+                <button class="btn-add-book"><i class="fas fa-plus"></i> Tambah Buku</button>
+            </div> -->
+
+            <!-- Daftar Buku -->
+            <div class="content">
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari buku..." class="search-input">
+                    <button class="search-button"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="add-book">
+                    <form th:action="@{/book/submit}" method="post" th:object="${bookForm}" class="form-group">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="kodeBuku" class="form-label">Kode Buku</label>
+                                <input type="text" id="idBook" class="form-control" name="idBook" th:value="${bookForm.idBook}" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="judul" class="form-label">Judul Buku</label>
+                                <input type="text" id="judul" class="form-control" name="judul" th:value="${bookForm.judul} " required />
+                            </div>
+                        </div>
+                        <div class="row mb-3 ">
+                            <div class="col-md-6 ">
+                                <label for="pengarang " class="form-label ">Pengarang</label>
+                                <input type="text " id="pengarang" class="form-control" name="pengarang" th:value="${bookForm.pengarang} " required />
+                            </div>
+                            <div class="col-md-6 ">
+                                <label for="penerbit " class="form-label ">Penerbit</label>
+                                <input type="text " id="penerbit" class="form-control" name="penerbit" th:value="${bookForm.penerbit} " required />
+                            </div>
+                        </div>
+                        <div class="row mb-3 ">
+                            <div class="col-md-6 ">
+                                <label for="tahunTerbit " class="form-label ">Tahun Terbit</label>
+                                <input type="text " id="tahunTerbit" class="form-control" name="tahunTerbit" th:value="${bookForm.tahunTerbit} " required />
+                            </div>
+                            <div class="col-md-6 ">
+                                <label for="jumlahBuku " class="form-label ">Jumlah Buku</label>
+                                <input type="number " id="jumlahBuku" class="form-control" name="jumlahBuku" th:value="${bookForm.jumlahBuku} " required />
+                            </div>
+                        </div>
+                        <button type="submit " class="btn btn-primary" name="add">Tambah Buku</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                    <!-- <button class="btn-add-book "><i class="fas fa-plus "></i> Tambah Buku</button> -->
+                </div>
+                <div class="table-responsive ">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kode Buku</th>
+                                <th>Judul</th>
+                                <th>Pengarang</th>
+                                <th>Penerbit</th>
+                                <th>Tahun Terbit</th>
+                                <th>Jumlah Buku</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="book, stat : ${books} ">
+                                <td th:text="${stat.index + 1} "></td>
+                                <td th:text="${book.idBook} "></td>
+                                <td th:text="${book.judul} "></td>
+                                <td th:text="${book.pengarang} "></td>
+                                <td th:text="${book.penerbit} "></td>
+                                <td th:text="${book.tahunTerbit} "></td>
+                                <td th:text="${book.jumlahBuku} "></td>
+                                <td><a th:href="@{/daftar_tambah_buku/{idBook}(idBook=${book.idBook})}" class="btn btn-primary">Edit</a>
+                                    <form th:action="@{/book/delete/{idBook}(idBook=${book.idBook})}" method="post" style="display:inline;">
+                                        <form th:action="@{/book/delete/{idBook}(idBook=${book.idBook})}" method="post" style="display:inline;">
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus buku ini?');">Delete</button>
+                                        </form>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

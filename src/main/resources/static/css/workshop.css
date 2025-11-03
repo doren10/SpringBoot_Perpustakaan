@@ -1,0 +1,190 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-title .icon {
+    margin-right: 10px;
+}
+
+.sidebar-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #bdc3c7;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 10px 0;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-menu a .icon {
+    margin-right: 10px;
+}
+
+.sidebar-menu a:hover {
+    background-color: #34495e;
+}
+
+/* Sidebar Link Active Styles */
+.sidebar-menu a.active {
+    background-color: #3498db;
+    color: white;
+}
+
+.sidebar-menu a.active:hover {
+    background-color: #2980b9;
+}
+
+.sidebar-menu a.active .icon {
+    color: white;
+}
+
+
+/* Content Area Styles */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+}
+
+.search-bar {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background-color: #2980b9;
+}
+
+/* Add Workshop Button */
+.add-workshop {
+    margin-bottom: 20px;
+}
+
+.btn-add-workshop {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-add-workshop i {
+    margin-right: 10px;
+}
+
+.btn-add-workshop:hover {
+    background-color: #27ae60;
+}
+
+/* Workshop List */
+.workshop-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.workshop-list th, .workshop-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #bdc3c7;
+}
+
+.workshop-list th {
+    background-color: #34495e;
+    color: white;
+}
+
+.workshop-list td {
+    background-color: white;
+}
+
+.workshop-list .btn-edit, .workshop-list .btn-delete {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.workshop-list .btn-edit {
+    background-color: #f39c12;
+    color: white;
+}
+
+.workshop-list .btn-edit:hover {
+    background-color: #e67e22;
+}
+
+.workshop-list .btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.workshop-list .btn-delete:hover {
+    background-color: #c0392b;
+}

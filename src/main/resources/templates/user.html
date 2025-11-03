@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Perpustakaan</title>
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="brand">
+            <img src="js/profile2.jpg" alt="Profil" class="profile-pic">
+            <h1>Isro Indra Septian</h1>
+        </div>
+        <ul>
+            <li><a href="/dashboarduser" class="active"><i class="bi bi-speedometer2"></i>&nbsp;&nbsp;<span>Dashboard</span></a></li>
+            <li><a href="/data_diri"><i class="bi bi-person"></i>&nbsp;&nbsp;<span>Profile</span></a></li>
+            <li><a href="/daftar_buku"><i class="bi bi-book-fill"></i>&nbsp;&nbsp;<span>Daftar Buku</span></a></li>
+            <li><a href="/peminjaman"><i class="bi bi-clipboard"></i>&nbsp;&nbsp;<span>Peminjaman</span></a></li>
+            <li><a href="/pengembalian"><i class="bi bi-clipboard-check"></i>&nbsp;&nbsp;<span>Pengembalian</span></a>
+            </li>
+            <li><a href="/logout"><i class="bi bi-box-arrow-left"></i>&nbsp;&nbsp;<span>Logout</span></a></li>
+        </ul>
+
+
+
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="user">
+                    <a href="data_diri" class="btn"><i class="fa-solid fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                        <h1 th:text="${totalBooksAvailable}"></h1>
+                        <h3>Buku Tersedia</h3>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1 th:text="${totalBooksBorrowed}"></h1>
+                        <!-- This will display the count of borrowed books -->
+                        <h3>Buku Dipinjam</h3>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-clipboard"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1 th:text="${totalBooksKembali}"></h1>
+                        <h3>Buku Dikembalikan</h3>
+                    </div>
+                    <div class="icon">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-2">
+            <div class="transactions">
+                <div class="title">
+                    <h2>Riwayat Peminjaman</h2>
+                    <a href="#" class="btn">Lihat Semua</a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id Peminjaman</th>
+                            <th>user Id</th>
+                            <th>Book Id</th>
+                            <th>Tanggal Peminjaman</th>
+                            <th>Tanggal Pengembalian</th>
+                            <th>Status</th>
+                            <th>Denda</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="peminjaman : ${riwayatPeminjaman}">
+                            <td th:text="${peminjaman.id}"></td>
+                            <td th:text="${peminjaman.userId}"></td>
+                            <td th:text="${peminjaman.bookId}"></td>
+                            <td th:text="${peminjaman.tanggalPeminjaman}"></td>
+                            <td th:text="${peminjaman.tanggalPengembalian}"></td>
+                            <td th:text="${peminjaman.status}"></td>
+                            <td th:text="${peminjaman.denda}"></td>
+                        </tr>
+                    </tbody>
+                    <!-- Tambahkan data lain sesuai kebutuhan -->
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

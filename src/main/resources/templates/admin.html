@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrator</title>
+    <!-- Link Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h1 class="sidebar-title">
+                <i class="fas fa-user-shield icon"></i> Administrator
+            </h1>
+            <p class="sidebar-description">Dashboard untuk mengelola perpustakaan</p>
+            <ul class="sidebar-menu">
+                <li><a href="/dashboardadmin" class="active"><i class="fas fa-tachometer-alt icon"></i> Dashboard</a></li>
+                <li><a href="/peminjamanadmin"><i class="fas fa-exchange-alt icon"></i> Peminjaman & Pengembalian</a></li>
+                <li><a href="/daftar_tambah_buku"><i class="fas fa-book icon"></i> Daftar & Tambah Buku</a></li>
+                <li><a href="/daftar_peminjam"><i class="fas fa-list icon"></i> Riwayat Peminjaman & Pengembalian</a></li>
+                <!-- <li><a href="/pengembalian"><i class="fas fa-undo-alt icon"></i> Daftar Pengembalian</a></li> -->
+                <!-- <li><a href="/workshop"><i class="fas fa-chalkboard-teacher icon"></i> Workshop</a></li> -->
+                <li><a href="/pengguna"><i class="fas fa-users icon"></i> Pengguna</a></li>
+                <li><a href="/logout"><i class="fas fa-sign-out-alt icon"></i> Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content">
+            <!-- Dashboard Cards -->
+            <div class="dashboard-cards">
+                <div class="card" onclick="location.href='#'">
+                    <i class="fas fa-exchange-alt card-icon"></i>
+                    <h3>Total Peminjaman & Pengembalian</h3>
+                    <p th:text="${totalBooks}"></p>
+
+                    <!-- <p>125 Transaksi</p>totalBooks -->
+                </div>
+                <div class="card" onclick="location.href='daftar_tambah_buku.html'">
+                    <i class="fas fa-book card-icon"></i>
+                    <h3>Total Buku</h3>
+                    <p th:text="${totalBooksAvailable}"></p>
+                </div>
+                <div class="card" onclick="location.href='#'">
+                    <i class="fas fa-list card-icon"></i>
+                    <h3>Daftar Peminjaman</h3>
+                    <p th:text="${totalBooksBorrowed}"></p>
+                    <!-- <p>30 Peminjaman Aktif</p> -->
+                </div>
+                <div class="card" onclick="location.href='#'">
+                    <i class="fas fa-undo-alt card-icon"></i>
+                    <h3>Daftar Pengembalian</h3>
+                    <p th:text="${totalBooksKembali}"></p>
+                </div>
+                <div class="card" onclick="location.href='pengguna'">
+                    <i class="fas fa-users card-icon"></i>
+                    <h3>Total Pengguna</h3>
+                    <p th:text="${totalAnggota}"></p>
+                    <!-- <p>120 Member</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

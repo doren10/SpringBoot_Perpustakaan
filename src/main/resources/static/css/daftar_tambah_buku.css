@@ -1,0 +1,237 @@
+/* Global Styles */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard {
+    display: flex;
+    width: 100%;
+}
+
+
+/* Sidebar Styles */
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-title .icon {
+    margin-right: 10px;
+}
+
+.sidebar-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #bdc3c7;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 10px 0;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-menu a .icon {
+    margin-right: 10px;
+}
+
+.sidebar-menu a:hover {
+    background-color: #34495e;
+}
+
+
+/* Sidebar Link Active Styles */
+
+.sidebar-menu a.active {
+    background-color: #3498db;
+    /* Background color for active link */
+    color: white;
+    /* Text color for active link */
+}
+
+.sidebar-menu a.active:hover {
+    background-color: #2980b9;
+    /* Slightly darker color on hover */
+}
+
+.sidebar-menu a.active .icon {
+    color: white;
+    /* Change icon color for active link */
+}
+
+
+/* Content Area Styles */
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+}
+
+.search-bar {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background-color: #2980b9;
+}
+
+
+/* Add Book Button */
+
+.add-book {
+    margin-bottom: 20px;
+}
+
+.btn-add-book {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-add-book i {
+    margin-right: 10px;
+}
+
+.btn-add-book:hover {
+    background-color: #27ae60;
+}
+
+
+/* Book List */
+
+.book-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.book-list th,
+.book-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #bdc3c7;
+}
+
+.book-list th {
+    background-color: #34495e;
+    color: white;
+}
+
+.book-list td {
+    background-color: white;
+}
+
+.book-list .btn-edit,
+.book-list .btn-delete {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.book-list .btn-edit {
+    background-color: #f39c12;
+    color: white;
+}
+
+.book-list .btn-edit:hover {
+    background-color: #e67e22;
+}
+
+.book-list .btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.book-list .btn-delete:hover {
+    background-color: #c0392b;
+}
+
+.transactions {
+    margin-top: 30px;
+}
+
+.transactions table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.transactions th,
+.transactions td {
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    background-color: #718096
+}
+
+.transactions th {
+    background-color: #f7fafc;
+    color: #4a5568;
+}
+
+.transactions .btn {
+    background-color: #3182ce;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+}

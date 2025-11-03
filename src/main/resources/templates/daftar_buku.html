@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Buku</title>
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/daftar_buku.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="brand">
+            <img src="images/foto profile2.jpg" alt="Profil" class="profile-pic">
+            <h1>Isro Indra Septian</h1>
+        </div>
+        <ul>
+            <li><a href="/dashboarduser"><i class="bi bi-speedometer2"></i>&nbsp;&nbsp;<span>Dashboard</span></a></li>
+            <li><a href="/data_diri"><i class="bi bi-person"></i>&nbsp;&nbsp;<span>Profile</span></a></li>
+            <li><a href="/daftar_buku"><i class="bi bi-book-fill"></i>&nbsp;&nbsp;<span>Daftar Buku</span></a></li>
+            <li><a href="/peminjaman"><i class="bi bi-clipboard"></i>&nbsp;&nbsp;<span>Peminjaman</span></a></li>
+            <li><a href="/pengembalian"><i class="bi bi-clipboard-check"></i>&nbsp;&nbsp;<span>Pengembalian</span></a>
+            </li>
+            <li><a href="/logout"><i class="bi bi-box-arrow-left"></i>&nbsp;&nbsp;<span>Logout</span></a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="search">
+                    <input type="text" placeholder="Cari buku">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="user">
+                    <a href="data_diri.html" class="btn"><i class="fa-solid fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <!-- Main Content -->
+            <main class="main-content">
+                <header class="header">
+                    <div class="header-top">
+                        <h1 class="page-title">Daftar Buku</h1>
+                    </div>
+                </header>
+
+                <div class="content">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kode Buku</th>
+                                    <th>Judul</th>
+                                    <th>Pengarang</th>
+                                    <th>Penerbit</th>
+                                    <th>Tahun Terbit</th>
+                                    <th>Jumlah Buku</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="book, stat : ${books}">
+                                    <td th:text="${stat.index + 1}"></td>
+                                    <td th:text="${book.idBook}"></td>
+                                    <td th:text="${book.judul}"></td>
+                                    <td th:text="${book.pengarang}"></td>
+                                    <td th:text="${book.penerbit}"></td>
+                                    <td th:text="${book.tahunTerbit}"></td>
+                                    <td th:text="${book.jumlahBuku}"></td>
+                                    <td>
+                                        <button style="background: azure; font-size: large; font-weight: bold; "><a href="peminjaman ">Pinjam Buku</a></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+</body>
+
+</html>
