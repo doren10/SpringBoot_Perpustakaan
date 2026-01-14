@@ -1,18 +1,14 @@
 package com.example.perpus.service;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.perpus.entity.DaftarBuku;
 import com.example.perpus.repository.DaftarBukuRepository;
-
-
 @Service
 public class DaftarBukuService {
     @Autowired
     private DaftarBukuRepository daftarBukuRepository;
+
 
     public List<DaftarBuku> getAllBooks() {
         return daftarBukuRepository.findAll();
@@ -26,7 +22,6 @@ public class DaftarBukuService {
     public DaftarBuku getBookById(String idBook) {
         return daftarBukuRepository.findById(idBook).orElse(null);
     }
-
     public void updateBook(DaftarBuku book) {
         daftarBukuRepository.save(book); // Spring Data JPA akan meng-handle update jika ID sudah ada
     }
@@ -34,3 +29,4 @@ public class DaftarBukuService {
         daftarBukuRepository.deleteById(idBook); // Hapus buku berdasarkan ID
     }
 }
+

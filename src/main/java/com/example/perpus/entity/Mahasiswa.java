@@ -1,8 +1,10 @@
 package com.example.perpus.entity;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+
 
 @Entity
 @Table(name = "mahasiswa")
@@ -12,10 +14,11 @@ public class Mahasiswa extends Pengguna {
         this.nim = nim;
     }
     public Mahasiswa(){
-        
+       
     }
     @Column(name = "nim", nullable = false, unique = true)
     private Integer nim; // Nomor Induk Mahasiswa
+
 
     public Integer getNim() {
         return nim;

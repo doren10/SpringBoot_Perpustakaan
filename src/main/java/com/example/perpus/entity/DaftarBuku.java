@@ -3,8 +3,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
-
-
 @Entity
 @Table(name = "book")
 public class DaftarBuku {
